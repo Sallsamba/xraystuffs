@@ -24,7 +24,13 @@ sont ainsi comparés. A la fin, une proposition financière est donnée basée s
 Si nécessaire, une visualisation des données est ajoutée dans le code pour montrer les résultas plus clairement pour les clients.
 
 
+### Yanting PAN :
 
+Ma partie consiste à créer un dataset d'images de 3 marques de téléphones différents, 3 marques de voitures différentes et 3 marques de canapés différentes. Chacun contient une centaine d'image.
+Si jamais l'objet n'est pas reconnue, une fonction va demander à l'utilisateur les caractéristiques, et l'ajouter à la base de données
+
+
+##
 
 ### MVP : 
 
