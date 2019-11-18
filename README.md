@@ -17,11 +17,11 @@ et fait à l'utilisateur des propositions financières pour l'acheter (où le ve
 Les deux features sont totalement indépendantes, mais l'une se fait en Python, l'autre en JS, donc il faut un lien.
 
 ### Hao Wang:
-Ma partie constite à chercher des informations sur les produits détectés dans les sites e-commerciales, une fois j'obtient les noms des produits qui viennent de Samba, 
-j'extrais les informations par example, les prix, les forms, les couleurs ,etc grace à modules 'requests' et 'BeautifulSoup' ou 'lxml' pour analyser les sites. Plusieurs sites 
-sont comparé par les informations extraits. A la fin, une proposition financière est donnée basé sur les considérations de tous les facteurs des produits
+Ma partie consiste  à chercher des informations sur les produits détectés dans les sites d'e-commerce, une fois que j'obtiens les noms des produits qui viennent de Samba. Pour cela, 
+j'extrais les informations (par exemple les prix, les formes, les couleurs, etc grace aux modules 'requests' et 'BeautifulSoup' ou 'lxml' pour analyser les sites. Plusieurs sites 
+sont ainsi comparés. A la fin, une proposition financière est donnée basée sur les considérations de tous les facteurs des produits.
 
-Si nécessaire, une visualisation des données est ajouté dans le code pour montrer les résultas plus clairement pour les clients.
+Si nécessaire, une visualisation des données est ajoutée dans le code pour montrer les résultas plus clairement pour les clients.
 
 
 
