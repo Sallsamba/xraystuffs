@@ -15,3 +15,18 @@ Notre application pourrait ensuite détecter la nature de l'objet dont on lui do
 et fait à l'utilisateur des propositions financières pour l'acheter (où le vendre). Pourquoi pas du JavaScript ?
 
 Les deux features sont totalement indépendantes, mais l'une se fait en Python, l'autre en JS, donc il faut un lien.
+
+
+### MVP : 
+
+Le MVP doit permettre de : 
+
+**Charger une image en vue de sa reconnaissance**
+
+**A partir d'un dataset d'images spécifié à l'avance (par exemple 3 marques de téléphones différents, 3 marques de voitures différentes, 3 marques de canapés différentes, etc.), reconnaître la classe de l'objet**
+
+**Une fois la classe de l'objet reconnue, aller sur un site spécialisé pour récupérer les caractéristiques de l'objet**
+
+**Faire une proposition financière à l'utilisateur**
+
+**Si jamais l'objet n'est pas reconnue, demander à l'utilisateur les caractéristiques, et l'ajouter à la base de données**
