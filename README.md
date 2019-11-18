@@ -27,7 +27,7 @@ Si nécessaire, une visualisation des données est ajoutée dans le code pour mo
 ### Yanting PAN :
 
 Ma partie consiste à créer un dataset d'images de 3 marques de téléphones différents, 3 marques de voitures différentes et 3 marques de canapés différentes. Chacun contient une centaine d'image.
-Si jamais l'objet n'est pas reconnue, une fonction va demander à l'utilisateur les caractéristiques, et l'ajouter à la base de données
+Le programme va transférer le nom détecté à Samba pour la suite de programme. Si jamais l'objet n'est pas reconnue, une fonction va demander à l'utilisateur les caractéristiques, et l'ajouter à la base de données.
 
 
 ##
