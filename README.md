@@ -16,6 +16,24 @@ et fait à l'utilisateur des propositions financières pour l'acheter (où le ve
 
 Les deux features sont totalement indépendantes, mais l'une se fait en Python, l'autre en JS, donc il faut un lien.
 
+### Hao Wang:
+Ma partie consiste  à chercher des informations sur les produits détectés dans les sites d'e-commerce, une fois que j'obtiens les noms des produits qui viennent de Samba. Pour cela, 
+j'extrais les informations (par exemple les prix, les formes, les couleurs, etc grace aux modules 'requests' et 'BeautifulSoup' ou 'lxml' pour analyser les sites. Plusieurs sites 
+sont ainsi comparés. A la fin, une proposition financière est donnée basée sur les considérations de tous les facteurs des produits.
+
+Si nécessaire, une visualisation des données est ajoutée dans le code pour montrer les résultas plus clairement pour les clients.
+
+
+### Yanting PAN :
+
+Ma partie consiste à créer un dataset d'images de 3 marques de téléphones différents, 3 marques de voitures différentes et 3 marques de canapés différentes. Chacun contient une centaine d'image.
+Le programme va transférer le nom détecté à Samba pour la suite de programme. Si jamais l'objet n'est pas reconnue, une fonction va demander à l'utilisateur les caractéristiques, et l'ajouter à la base de données.
+
+### Chuyang Zeng
+
+Je collabore avec Yanting. On a éssayé de trouver des database symba. Finalement, on abondone BING_API qu'on a utilisé la semaine dernière à cause de une limite de quantité d'image -35 à enregistrer. Et on a utilisé FunKun pour les trouver et enregistrer.
+
+##
 
 ### MVP : 
 
