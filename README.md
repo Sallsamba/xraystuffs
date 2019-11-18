@@ -29,6 +29,9 @@ Si nécessaire, une visualisation des données est ajoutée dans le code pour mo
 Ma partie consiste à créer un dataset d'images de 3 marques de téléphones différents, 3 marques de voitures différentes et 3 marques de canapés différentes. Chacun contient une centaine d'image.
 Le programme va transférer le nom détecté à Samba pour la suite de programme. Si jamais l'objet n'est pas reconnue, une fonction va demander à l'utilisateur les caractéristiques, et l'ajouter à la base de données.
 
+### Chuyang Zeng
+
+Je collabore avec Yanting. On a éssayé de trouver des database symba. Finalement, on abondone BING_API qu'on a utilisé la semaine dernière à cause de une limite de quantité d'image -35 à enregistrer. Et on a utilisé FunKun pour les trouver et enregistrer.
 
 ##
 
