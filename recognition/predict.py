@@ -1,3 +1,7 @@
+#Predict the class of an image. 
+#Input : the path of the image. 
+#Output : An array P of probabilities. P[i] is the probabilty that the image is an "i"
+
 from recognition.embeddings import embeddings
 from recognition.embeddings import preproc
 import tensorflow as tf
