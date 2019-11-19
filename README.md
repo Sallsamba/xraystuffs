@@ -1,4 +1,4 @@
-# BNP_productrecognition
+# BNP Product Recognition
 
 Le projet consiste en la mise en place d'une application de reconnaissance de produits, qui permet, une fois un produit reconnu, de faire des propositions financières (de crédit) à l'utilisateur pour l'acheter.
 
@@ -19,7 +19,7 @@ Le MVP doit permettre de :
 ### Samba Sall : 
 
 Mon rôle était de programmer toute la partie machine learning du projet : choix du modèle, data-preprocessing, fine-tuning, fitting, et validation.
-J'ai utilisé le modèle pré-entraîné VGGFace, un maximum de transfert learning, et j'ai entraîné mon propre modèle qui prend en entrée les features de sortie du réseaux pré-entraîné.
+J'ai utilisé le modèle pré-entraîné VGG16, un maximum de transfert learning, et j'ai entraîné mon propre modèle qui prend en entrée les features de sortie du réseaux pré-entraîné.
 J'ai pu avoir une très bonne précision sur mes classes (~92%) pour les validations.
 Toutefois, il faut garder en tête que le dataset est constitué d'objets assez différents visuellement (fait exprès pour le MVP) donc dans la réalité le taux pourrait baisser un peu (mais à mon avis pas trop... peut-être qu'on restera au dessus de 90% !!!)
 
