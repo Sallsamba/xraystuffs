@@ -1,12 +1,15 @@
+#define_model() name is self-explanatory. It's only used once, then the model is saved in the main directory
+#score() is a simple evaluation function
+
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
 from recognition.data import dataset
 
-#add all used classes, with the order corresponding to the mapping
-class_names = ["ferrari", "jeep", "renault clio" ]
+#number of classes
 n = 10
+#load the data
 data, test_data, labels, test_labels = dataset()
 
 def define_model():
