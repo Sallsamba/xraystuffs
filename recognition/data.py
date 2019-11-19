@@ -12,3 +12,5 @@ def load_data():
     test_labels = np.random.randint(n, size=(100, 1))
 
     return data, labels, test_data, test_labels
+
+    
