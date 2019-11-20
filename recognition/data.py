@@ -1,4 +1,5 @@
-#to modify
+#load_datac() allows to create a new dataset (well-formatted : embeddings) using the image in the dataset folders. Called only one time. 
+#dataset() is a function allowing to load the stored dataset
 import os
 import numpy as np
 from recognition.embeddings import embeddings
