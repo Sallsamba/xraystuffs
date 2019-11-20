@@ -9,6 +9,8 @@ class car:
         self.energie=energie
         self.boite_de_vitesse=boite_de_vitesse
         self.prix=prix
+        
+#url is a mapping function which redirects to a website with needed informations
 def url(article):
     if article == 'renault clio':
        url_list = ['https://www.autoplus.fr/renault/clio/-/prix-neuf/?year-min=2019'] 
@@ -25,7 +27,8 @@ def url(article):
     else :
        url_list =['https://www.ikea.com/fr/fr/cat/canapes-cuir-et-tissu-enduit-10662/']
     return url_list
-
+    
+#The main scraping function. It scrapes all the features of the car.
 def extract_car(url_list):
     hearder = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
