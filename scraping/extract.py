@@ -31,15 +31,16 @@ def extract_car(url_list):
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
     }
 
-    voiture_totale =[]
+    detail_list = []
     for url in url_list:
         res = requests.get(url,headers=hearder)
         html = etree.HTML(res.text)
-        items = html.xpath('//tr[@class="row--even"]|//tr[@class="row--odd"]')
+        items = html.xpath('//tr[@class="row--even"][1]')
         #|//tr[@class="row--dfp"]')
         #print(items)
+       
         for  item in items:
-            detail_list = []
+            
             version = item.xpath('.//td[2]/a/text()')
             detail_list.append(version[0])
             energie = item.xpath('.//td[3]/text()')
@@ -47,28 +48,34 @@ def extract_car(url_list):
             prix = item.xpath('.//td[8]/text()')
             prix[0]="".join(prix[0].split())
             detail_list.append(prix[0])
-            print(detail_list)
-            voiture_totale.append(detail_list)
+            
+    return detail_list      
 
 def extract_telephone(url_list):
     telephone_totale =[]
     header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
     }
+    detail_list = []
     for url in url_list:
         res = requests.get(url,headers = header)
         html = BeautifulSoup(res.text,'html.parser')
-        items = html.find_all('li',class_='productOffers-listItem row row-24 row-24-mobile')
+        items = html.find('li',class_='productOffers-listItem row row-24 row-24-mobile')
+        
         #items = html.xpath('//li[@class="productOffers-listItem row row-24 row-24-mobile"]')
-        for item in items:
-            detail_list = []
-            name = item.find('span').text.strip()
-            name = name.replace('\u00AD','')
-            detail_list.append(name)
-            prix = item.find('a',class_='productOffers-listItemOfferPrice').text.strip()
-            detail_list.append(prix)
-            print(name)
-            telephone_totale.append(detail_list)
+        
+        #for item in items:
+            
+        name = items.find('span').text.strip()
+        name = name.replace('\u00AD','')
+        name = name[:-6]
+        detail_list.append(name)
+        prix = items.find('a',class_='productOffers-listItemOfferPrice').text.strip()
+        prix="".join(prix.split())
+        detail_list.append(prix)
+        
+    return detail_list
+            
 
 
 def extract_canape(url_list):
@@ -76,21 +83,31 @@ def extract_canape(url_list):
     header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
     }
+    detail_list = []
     for url in url_list:
         res = requests.get(url,headers = header)
         html = BeautifulSoup(res.text,'html.parser')
-        items = html.find_all('div',class_='product-compact__spacer')
+        item = html.find('div',class_='product-compact__spacer')
+        
         
         #items = html.xpath('//li[@class="productOffers-listItem row row-24 row-24-mobile"]')
-        for item in items:
-            detail_list = []
-            name = item.find('span',class_='product-compact__name').text.strip()
-            detail_list.append(name)
-            type_ = item.find('span',class_='product-compact__type').text.strip()
-            detail_list.append(type_)
-            prix = item.find('span',class_='product-compact__price').text.strip()
-            detail_list.append(prix)
-            canape_totale.append(detail_list)
         
-if __name__ == "__main__":
-   extract_canape(url('canape'))
+        
+        name = item.find('span',class_='product-compact__name').text.strip()
+        detail_list.append(name)
+        type_ = item.find('span',class_='product-compact__type').text.strip()
+        detail_list.append(type_)
+        prix = item.find('span',class_='product-compact__price').text.strip()
+        detail_list.append(prix)
+        
+    return detail_list
+        
+def main(article):
+    if article == 'renault clio' or 'jeep' or 'ferrari':
+       print(extract_car(url(article)))
+    elif article == 'huawei' or 'iphone 6' or 'ihpne 11 pro':
+       print(extract_telephone(url(article)))
+    else :
+       print(extract_canape(url(article)))
+
+main('jeep')
