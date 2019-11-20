@@ -1,32 +1,35 @@
+#define_model() name is self-explanatory. It's only used once, then the model is saved in the main directory
+#score() is a simple evaluation function
+
 import tensorflow as tf
 from tensorflow import keras
 import numpy as np
 import matplotlib.pyplot as plt
-from recognition.data import load_data
+from recognition.data import dataset
 
-#add all used classes, with the order corresponding to the mapping
-class_names = ["ferrari", "jeep", "renault clio" ]
+#number of classes
 n = 10
+#load the data
+data, test_data, labels, test_labels = dataset()
 
-data, labels, test_data, test_labels = load_data()
+def define_model():
 
-#data = np.random.random((1000,512))
-#labels = np.random.randint(n, size=(1000, 1))
+    model = keras.Sequential([
+        keras.layers.Dense(128, activation='relu', input_shape = (512,)),
+        keras.layers.Dense(n, activation='softmax')
+    ])
 
+    model.compile(optimizer='adam',
+                loss='sparse_categorical_crossentropy',
+                metrics=['accuracy'])
 
-model = keras.Sequential([
-    keras.layers.Dense(128, activation='relu', input_shape = (512,)),
-    keras.layers.Dense(n, activation='softmax')
-])
+    model.fit(data, labels, epochs = 20, batch_size = 32)
 
-model.compile(optimizer='adam',
-              loss='sparse_categorical_crossentropy',
-              metrics=['accuracy'])
-
-model.fit(data, labels, epochs = 20, batch_size = 32)
+    return model
 
 def score (model):
-   return model.evaluate (test_data, test_labels, batch_size = 32)
+   return model.evaluate (test_data, test_labels, batch_size = 128)
+
 
 
 
