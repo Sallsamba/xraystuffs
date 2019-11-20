@@ -14,7 +14,7 @@ def url(article):
        url_list = ['https://www.autoplus.fr/renault/clio/-/prix-neuf/?year-min=2019'] 
     elif article == 'jeep':
        url_list = ['https://www.autoplus.fr/jeep/wrangler/prix-neuf/']
-    elif article ==
+    elif article == '':
        url_list =['https://www.autoplus.fr/ferrari/458/Pista-Spider/prix-neuf/']
     return url_list
 
@@ -42,7 +42,7 @@ def extract_car(url_list):
             print(detail_list)
             data_totale.append(detail_list)
 def extract_telephone(url_list):
-
+    return None
             
 
 if __name__ == "__main__":
