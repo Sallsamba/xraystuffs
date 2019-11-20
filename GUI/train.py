@@ -18,7 +18,30 @@ def browsefunc():
 
 root = tk.Tk()
 root.title ("BNP Object Recognition")
+root.resizable(0,0)
 entryText = tk.StringVar()  
+
+def format_features(path):
+    try:
+
+        Category = ""
+        Version = ""
+        Price = ""
+        final_str = 'Catégorie: %s \nVersion: %s \nPrix : %s' % (Category, Version, Price)
+
+    except:
+        final_str = 'There was a problem retrieving that information'
+
+    return final_str
+
+def format_image(path):
+    try:
+        final_img = tk.PhotoImage(file  = path)
+        final_img = ""
+    except:
+        return None
+    return final_img
+
 
 #canvas for my whole window
 canvas = tk.Canvas(root, height=HEIGHT, width=WIDTH)
