@@ -1,3 +1,6 @@
+#Add a file to the database, and create the corresponding class and subclass if they do not exist yet
+#eg : add_to_database ("img./jpg", "watch", "rolex" ) will create  "database/watch/rolex/img.jpg"
+
 import os
 import shutil
 
