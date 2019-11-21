@@ -42,3 +42,20 @@ Le programme va transférer le nom détecté à Samba pour la suite de programme
 Je collabore avec Yanting. On a essayé de créer un dataset sympa. Finalement, on a abandonné l'API de Bing qu'on a utilisé la semaine dernière, à cause d'une limite de 35 images à télécharger. On a utilisé FatKun, une extension de Chrome, pour constituer notre dataset.
 
 
+# BNP : Product Recognition
+
+Cette application permet à un utilisateur de prendre une photo d'un objet qui une fois reconnu par un algorithme de Computer Vision, lui sera proposé à l'achat à travers un financement 
+par BNP Paribas et un site d'e-commerce partenaire.
+
+## Installation et utilisation
+
+Il faut avant tout installer les requirements  avec `pip install -r requirements.txt`.
+Pour lancer l'application, il faut ensuite exécuter le fichier `GUI/train.py` qui va lancer l'interface graphique. 
+Il suffit ensuite de charger son image (depuis l'ordinateur ou depuis une webcam).
+
+
+## Auteurs
+Yanting Pan
+Samba Sall
+Hao Wang
+Chuyang Zeng
