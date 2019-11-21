@@ -22,6 +22,6 @@ def predict(path):
 def decode(prediction):
     for i in range(len(prediction[0])):
         if prediction[0][i] > 0.9:
-            return dico[i]
+            return i
     
     return False
