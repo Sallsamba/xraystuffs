@@ -40,7 +40,7 @@ Le programme va transférer le nom détecté à Samba pour la suite de programme
 ### Chuyang Zeng
 
 Je collabore avec Yanting. On a essayé de créer un dataset sympa. Finalement, on a abandonné l'API de Bing qu'on a utilisé la semaine dernière, à cause d'une limite de 35 images à télécharger. Et puis j'ai essayé de crawl l'image directement sur la page grâce
-Requestes et Beautifulsoup. Et puis j'ai utilisé get_google_image, une programme sur Github. Et aussi on a utilisé FatKun, une extension de Chrome, pour constituer notre dataset.
+Requestes et Beautifulsoup. Et puis on a utilisé get_google_image, une programme sur Github et aussi FatKun, une extension de Chrome, pour constituer notre dataset.
 
 
 # BNP : Product Recognition
