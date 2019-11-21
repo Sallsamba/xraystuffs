@@ -54,6 +54,7 @@ def extract_car(url_list):
             
     return detail_list      
 
+#scrapes all the features of the telephone
 def extract_telephone(url_list):
     telephone_totale =[]
     header = {
@@ -80,7 +81,7 @@ def extract_telephone(url_list):
     return detail_list
             
 
-
+#scrapes all the features of a canape
 def extract_canape(url_list):
     canape_totale =[]
     header = {
@@ -104,7 +105,8 @@ def extract_canape(url_list):
         detail_list.append(prix)
         
     return detail_list
-        
+  
+#main function to wrap them all !
 def main(article):
     if article == 'renault clio' or 'jeep' or 'ferrari':
        print(extract_car(url(article)))
