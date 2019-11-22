@@ -5,27 +5,25 @@ from scraping.extract import extract
 import tkinter as tk
 import tkinter.filedialog
 
-
+#constantes 
 cour = "{courier new} 12 bold "
 HEIGHT = 1000
 WIDTH = 1000
 
-
-
-def test_function(entry):
-    print("This is the entry:", entry)
-
-def browsefunc():
-    filename = tkinter.filedialog.askopenfilename()
-    entryText.set (filename)
-
+#main variables
 root = tk.Tk()
-root.title ("BNP Object Recognition")
+root.title ("BNP Scan & Buy")
 root.resizable(0,0)
 entryText = tk.StringVar()  
 final_str = tk.StringVar()
 final_prop = tk.StringVar()
 
+#Function to browse an image
+def browsefunc():
+    filename = tkinter.filedialog.askopenfilename()
+    entryText.set (filename)
+
+#Function to format features
 def format_features(path):
     try:
         Category,Version, Price = extract(decode(predict(path)))
@@ -35,9 +33,7 @@ def format_features(path):
     except:
         final_str.set('objet non reconnu :-(')
     
-    
-    
-
+#Function to format the object image
 def format_image(path):
     imname = decode(predict(path))
     final_img = tk.PhotoImage(file  = "dbutils/"+str(imname)+".png")
@@ -45,6 +41,7 @@ def format_image(path):
     image_label.configure(image = final_img)
     image_label.image =final_img
 
+#Function to format the financial proposition
 def format_prop(path):
     try:
         Price = extract(decode(predict(path)))[2]
@@ -54,8 +51,7 @@ def format_prop(path):
     except:
         final_prop.set("Cet objet est peut-être un peu trop cher pour votre budget.")
 
-    
-
+#Function to format everything !
 def format_total(path):
     format_image(path)
     format_features(path)

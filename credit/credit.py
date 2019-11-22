@@ -1,5 +1,5 @@
-# Ce programme concerne à faire une proposition de crédit à client
-# qui dépend de la durée
+# Ce programme permet de faire une proposition de crédit à client
+
 from math import floor
 
 def credit(prix):
