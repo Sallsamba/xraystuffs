@@ -9,7 +9,7 @@ Il faut avant tout installer les requirements  avec `pip install -r requirements
 Pour lancer l'application, il faut ensuite exécuter le fichier `GUI/train.py` qui va lancer l'interface graphique. 
 Il suffit ensuite de charger son image (depuis l'ordinateur ou depuis une webcam).
 
-## Features
+## Fonctionnalités
 
 L'application reconnaît pour l'instant (MVP) 9 types de produits différents. Si l'objet photographié n'est pas reconnu par l'algorithme, il est proposé à l'utilisateur de mettre à jour 
 la base de données, pour qu'une fois celle-ci fournie, le modèle de Computer Vision puisse s'améliorer (et apprendre de nouvelles catégories).
