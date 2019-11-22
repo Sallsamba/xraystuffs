@@ -1,10 +1,12 @@
 from recognition.predict import predict
 from recognition.predict import decode
-#from scraping.extract import *
+from credit.credit import credit
+from scraping.extract import extract
 import tkinter as tk
 import tkinter.filedialog
 
-cour = "{courier new} 14 bold italic"
+
+cour = "{courier new} 12 bold "
 HEIGHT = 1000
 WIDTH = 1000
 
@@ -22,22 +24,19 @@ root.title ("BNP Object Recognition")
 root.resizable(0,0)
 entryText = tk.StringVar()  
 final_str = tk.StringVar()
+final_prop = tk.StringVar()
 
 def format_features(path):
     try:
-        #Name,Category, Version, Price = extract(decode(predict(path)))
-        Name = "Name"
-        Category = "Catégorie"
-        Version = "Version"
-        Price = "Price"
+        Category,Version, Price = extract(decode(predict(path)))
 
-        final_str.set("Votre objet a été reconnu !\n Il s'agit d'un {}.\nCatégorie: {} \nVersion: {} \nPrix : {}".format(Name, Category, Version, Price))
+        final_str.set("Votre objet a été reconnu !\n\n Il s'agit d'un(e) {}.\n\n {} \n\nPrix (en €) : {}".format(Category, Version, Price))
 
     except:
-        final_str.set('There was a problem retrieving the informations')
+        final_str.set('objet non reconnu :-(')
     
-    pred_label.configure (textvariable = final_str)
-    print(final_str)
+    
+    
 
 def format_image(path):
     imname = decode(predict(path))
@@ -45,11 +44,22 @@ def format_image(path):
     
     image_label.configure(image = final_img)
     image_label.image =final_img
+
+def format_prop(path):
+    try:
+        Price = extract(decode(predict(path)))[2]
+        if credit(int(Price)) != False:
+
+            final_prop.set("Pour acheter cet objet, la BNP Paribas vous propose de payer en plusieurs fois!\n"+credit(int(Price)))
+    except:
+        final_prop.set("Cet objet est peut-être un peu trop cher pour votre budget.")
+
     
 
 def format_total(path):
     format_image(path)
     format_features(path)
+    format_prop(path)
 
 
 #canvas for my whole window
@@ -62,7 +72,7 @@ background_label.place(relwidth=1, relheight=1)
 
 
 #frame to for the Entry and the Buttons
-frame = tk.Frame(root, bg='#80c1ff', bd=5)
+frame = tk.Frame(root, bg='green', bd=5)
 frame.place(relx=0.05, rely=0.1, relwidth=0.9, relheight=0.05)
 
 entry = tk.Entry(frame, font = cour, textvariable = entryText)
@@ -76,7 +86,7 @@ button.place(relx=0.72, relheight=1, relwidth=0.28)
 #end of the frame
 
 #frame for the image
-image_frame = tk.Frame(root, bg='gray', bd=10)
+image_frame = tk.Frame(root, bg='green', bd=2)
 image_frame.place(relx=0.05, rely=0.25, relwidth=0.5, relheight=0.5)
 
 image_label = tk.Label(image_frame)
@@ -84,8 +94,8 @@ image_label.place(relwidth=1, relheight=1)
 #end of the frame
 
 #frame for the prediction and features of the object
-pred_frame = tk.Frame(root, bg='blue', bd=10)
-pred_frame.place(relx=0.6, rely=0.25, relwidth=0.35, relheight=0.5)
+pred_frame = tk.Frame(root, bg='green', bd=2)
+pred_frame.place(relx=0.57, rely=0.4, relwidth=0.38, relheight=0.2)
 
 pred_label = tk.Label(pred_frame, textvariable = final_str, font = cour)
 pred_label.place(relwidth=1, relheight=1)
@@ -93,10 +103,10 @@ pred_label.place(relwidth=1, relheight=1)
 
 
 #frame for the financial proposal
-fin_frame = tk.Frame(root, bg='black', bd=10)
+fin_frame = tk.Frame(root, bg='green', bd=2)
 fin_frame.place(relx=0.05, rely=0.8, relwidth=0.9, relheight=0.15)
 
-fin_label = tk.Label(fin_frame)
+fin_label = tk.Label(fin_frame, textvariable = final_prop, font = cour)
 fin_label.place(relwidth=1, relheight=1)
 #end of the frame
 

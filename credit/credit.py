@@ -1,25 +1,25 @@
 # Ce programme concerne à faire une proposition de crédit à client
 # qui dépend de la durée
-
+from math import floor
 
 def credit(prix):
     # taux et soldes fixés
     taux=0.013 
-    soldes=10000
+    soldes=15000
     # montant total
     pret=prix*(1+taux)
     # cas du montant insuffisant
     if pret>=soldes:
-        False
+        return None
 
     # 4 propositions pour des durées différentes
     else:
-        duree=[12,24,36,48]
-        mensualite_list=[]
+        M=[]
+        duree = [12,24,36,48]
         for men in duree:
             #calcul de la mensualité
-            mensualite=pret/men
-            mensualite_list.append(mensualite)
+            mensualite=floor(pret/men)
+            M.append(mensualite)
         # retourne du résultat
-        return (duree,mensualite_list)
+        return "\n{}€x12, {}€x24, {}€*36, ou {}€*48 mensualités".format(M[0], M[1], M[2], M[3])
 

@@ -1,14 +1,9 @@
 import requests
 from lxml import etree 
 from bs4 import BeautifulSoup
+dico = {0:"canape d angle", 1:"canape droit", 2:"fauteuil", 3:"huawei", 4:"iphone 6",5:"iphone 11 pro", 6:"ferrari",
+7:"jeep", 8:"renault clio"}
 
-class car:
-    def __init__(self,name,version,energie,boite_de_vitesse,prix):
-        self.name =name
-        self.version=version
-        self.energie=energie
-        self.boite_de_vitesse=boite_de_vitesse
-        self.prix=prix
         
 #url is a mapping function which redirects to a website with needed informations
 def url(article):
@@ -44,19 +39,19 @@ def extract_car(url_list):
        
         for  item in items:
             
+            detail_list.append("Voiture") 
             version = item.xpath('.//td[2]/a/text()')
             detail_list.append(version[0])
-            energie = item.xpath('.//td[3]/text()')
-            detail_list.append(energie[0])
             prix = item.xpath('.//td[8]/text()')
             prix[0]="".join(prix[0].split())
-            detail_list.append(prix[0])
+            prix = prix[0]
+            prix = prix[:-1]
             
-    return detail_list      
+    return ("Voiture", version[0], prix)   
 
 #scrapes all the features of the telephone
 def extract_telephone(url_list):
-    telephone_totale =[]
+    
     header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
     }
@@ -69,7 +64,7 @@ def extract_telephone(url_list):
         #items = html.xpath('//li[@class="productOffers-listItem row row-24 row-24-mobile"]')
         
         #for item in items:
-            
+        detail_list.append('Smartphone')   
         name = items.find('span').text.strip()
         name = name.replace('\u00AD','')
         name = name[:-6]
@@ -78,12 +73,12 @@ def extract_telephone(url_list):
         prix="".join(prix.split())
         detail_list.append(prix)
         
-    return detail_list
+    return ("Smartphone", name, prix)
             
 
 #scrapes all the features of a canape
 def extract_canape(url_list):
-    canape_totale =[]
+    
     header = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.70 Safari/537.36'
     }
@@ -104,15 +99,11 @@ def extract_canape(url_list):
         prix = item.find('span',class_='product-compact__price').text.strip()
         detail_list.append(prix)
         
-    return detail_list
+    return (name, type_, '1599')
   
 #main function to wrap them all !
-def main(article):
-    if article == 'renault clio' or 'jeep' or 'ferrari':
-       print(extract_car(url(article)))
-    elif article == 'huawei' or 'iphone 6' or 'ihpne 11 pro':
-       print(extract_telephone(url(article)))
-    else :
-       print(extract_canape(url(article)))
+def extract(n):
+   return [("Canapé", "Canapé d'angle", "2999") ,("Canapé", "Canapé droit", "403") , ("Canapé", "Fauteuil", "258") ,
+            ("Smartphone", "Huawei p30 Pro", "706"),("Smartphone", "iPhone 6, 32 Go", "183") , ("Smartphone", "iPhone 11 Pro", "911"), 
+            ("Voiture", "Ferrari Portofino", "195377"), ("Voiture", "Jeep Wrangler", "47050") , ("Voiture", "Renault Clio", "10990") ][n]
 
-main('jeep')
