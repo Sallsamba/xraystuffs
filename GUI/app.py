@@ -31,15 +31,20 @@ def format_features(path):
         final_str.set("Votre objet a été reconnu !\n\n Il s'agit d'un(e) {}.\n\n {} \n\nPrix (en €) : {}".format(Category, Version, Price))
 
     except:
-        final_str.set('objet non reconnu :-(')
+        final_str.set('Objet non reconnu :-(')
     
 #Function to format the object image
 def format_image(path):
-    imname = decode(predict(path))
-    final_img = tk.PhotoImage(file  = "dbutils/"+str(imname)+".png")
-    
-    image_label.configure(image = final_img)
-    image_label.image =final_img
+    try:
+        imname = decode(predict(path))
+        final_img = tk.PhotoImage(file  = "dbutils/"+str(imname)+".png")
+        
+        image_label.configure(image = final_img)
+        image_label.image =final_img
+    except:
+        final_img = tk.PhotoImage(file  = "dbutils/unknown.png")
+        image_label.configure(image = final_img)
+        image_label.image =final_img
 
 #Function to format the financial proposition
 def format_prop(path):
@@ -49,7 +54,7 @@ def format_prop(path):
 
             final_prop.set("Pour acheter cet objet, la BNP Paribas vous propose de payer en plusieurs fois!\n"+credit(int(Price)))
     except:
-        final_prop.set("Cet objet est peut-être un peu trop cher pour votre budget.")
+        final_prop.set("Nous ne pouvons pas vous faire de proposition financière pour cet objet")
 
 #Function to format everything !
 def format_total(path):

@@ -18,4 +18,4 @@ def decode(prediction):
         if prediction[0][i] > 0.9:
             return i
     
-    return False
+    return 100
