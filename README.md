@@ -1,3 +1,6 @@
+
+(PULLED FROM GITLAB)
+
 # BNP : Product Recognition
 
 Cette application permet à un utilisateur de prendre une photo d'un objet qui, une fois reconnu par un algorithme de Computer Vision, lui sera proposé à l'achat à travers un financement 
