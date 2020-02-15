@@ -23,12 +23,4 @@ Néanmoins, si le solde de l'utilisateur (ici fixé à 10 000 euros pour les bes
 à la valeur du produit, le financement n'est pas proposé (pour des raisons de solvabilité).
 
 
-
-## Auteurs
-
-**Yanting Pan,**
-**Samba Sall,**
-**Hao Wang,**
-**Chuyang Zeng**
-
 En cas de bugs, merci de créer une Issue :)
